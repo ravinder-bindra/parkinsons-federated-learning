@@ -1,0 +1,126 @@
+{
+  "voice": {
+    "clients": {
+      "h1": {
+        "rows": 52,
+        "PD": 37,
+        "healthy": 15,
+        "path": "data\\processed\\voice_h1.csv"
+      },
+      "h2": {
+        "rows": 52,
+        "PD": 39,
+        "healthy": 13,
+        "path": "data\\processed\\voice_h2.csv"
+      },
+      "h3": {
+        "rows": 52,
+        "PD": 39,
+        "healthy": 13,
+        "path": "data\\processed\\voice_h3.csv"
+      }
+    },
+    "feature_count": 22,
+    "test": {
+      "rows": 39,
+      "PD": 32,
+      "healthy": 7,
+      "path": "data\\processed\\voice_test.csv"
+    },
+    "features": [
+      "MDVP:Fo(Hz)",
+      "MDVP:Fhi(Hz)",
+      "MDVP:Flo(Hz)",
+      "MDVP:Jitter(%)",
+      "MDVP:Jitter(Abs)",
+      "MDVP:RAP",
+      "MDVP:PPQ",
+      "Jitter:DDP",
+      "MDVP:Shimmer",
+      "MDVP:Shimmer(dB)",
+      "Shimmer:APQ3",
+      "Shimmer:APQ5",
+      "MDVP:APQ",
+      "Shimmer:DDA",
+      "NHR",
+      "HNR",
+      "RPDE",
+      "DFA",
+      "spread1",
+      "spread2",
+      "D2",
+      "PPE"
+    ]
+  },
+  "handwriting": {
+    "train": {
+      "rows": 50,
+      "PD": 22,
+      "healthy": 28
+    },
+    "test": {
+      "rows": 13,
+      "PD": 6,
+      "healthy": 7
+    },
+    "feature_count": 21,
+    "features": [
+      "spiral_RMS",
+      "spiral_MAX_BETWEEN_ET_HT",
+      "spiral_MIN_BETWEEN_ET_HT",
+      "spiral_STD_DEVIATION_ET_HT",
+      "spiral_MRT",
+      "spiral_MAX_HT",
+      "spiral_MIN_HT",
+      "spiral_STD_HT",
+      "spiral_CHANGES_FROM_NEGATIVE_TO_POSITIVE_BETWEEN_ET_HT",
+      "meander_RMS",
+      "meander_MAX_BETWEEN_ET_HT",
+      "meander_MIN_BETWEEN_ET_HT",
+      "meander_STD_DEVIATION_ET_HT",
+      "meander_MRT",
+      "meander_MAX_HT",
+      "meander_MIN_HT",
+      "meander_STD_HT",
+      "meander_CHANGES_FROM_NEGATIVE_TO_POSITIVE_BETWEEN_ET_HT",
+      "AGE",
+      "GENDER",
+      "RIGHT_HANDED"
+    ]
+  },
+  "updrs": {
+    "train": {
+      "recordings": 4577,
+      "subjects": 33
+    },
+    "test": {
+      "recordings": 1298,
+      "subjects": 9
+    },
+    "feature_count": 18,
+    "features": [
+      "age",
+      "sex",
+      "Jitter(%)",
+      "Jitter(Abs)",
+      "Jitter:RAP",
+      "Jitter:PPQ5",
+      "Jitter:DDP",
+      "Shimmer",
+      "Shimmer(dB)",
+      "Shimmer:APQ3",
+      "Shimmer:APQ5",
+      "Shimmer:APQ11",
+      "Shimmer:DDA",
+      "NHR",
+      "HNR",
+      "RPDE",
+      "DFA",
+      "PPE"
+    ],
+    "targets": [
+      "motor_UPDRS",
+      "total_UPDRS"
+    ]
+  }
+}

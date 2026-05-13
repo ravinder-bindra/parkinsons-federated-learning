@@ -1,0 +1,26 @@
+{
+  "num_rounds": 15,
+  "local_epochs": 3,
+  "batch_size": 16,
+  "lr": 0.001,
+  "prox_mu": 0.1,
+  "dropout_p": 0.3,
+  "dp_enabled": false,
+  "dp_clip": 1.0,
+  "dp_noise": 0.5,
+  "seed": 42,
+  "final_voice": {
+    "loss": 0.4097552420003846,
+    "accuracy": 0.7948717948717948,
+    "balanced_acc": 0.6517857142857143,
+    "f1": 0.875,
+    "auc": 0.84375
+  },
+  "final_handwriting": {
+    "loss": 0.10697910137439316,
+    "accuracy": 0.9230769230769231,
+    "balanced_acc": 0.9166666666666667,
+    "f1": 0.9090909090909091,
+    "auc": 1.0
+  }
+}

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Streamlit
+.streamlit/
+
+# Don't ignore results -- they're part of the deliverable.
+# If you want to ignore them on re-runs, uncomment below:
+# results/
+# !results/.gitkeep

@@ -4,10 +4,11 @@
 
 ### Multi-Modal Privacy-Preserving Early Detection using Voice & Handwriting Biomarkers
 
+[![CI](https://github.com/ravinder-bindra/parkinsons-federated-learning/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/parkinsons-federated-learning/actions)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-12%2F12%20Passing-brightgreen)](tests/test_pipeline.py)
-[![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](app/app.py)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://YOUR_USERNAME-parkinson-fl.streamlit.app)
 [![SDG](https://img.shields.io/badge/SDG-3%20Good%20Health-4CAF50)](https://sdgs.un.org/goals/goal3)
 [![PEC](https://img.shields.io/badge/PEC-Chandigarh-navy)](https://pec.ac.in)
 
@@ -191,12 +192,35 @@ Oxford Telemonitoring:
 
 ![ROC and PR](results/figures/roc_pr_combined.png)
 
+### 🖥️ Live Demo
+
+**[▶ Open Live Demo](https://parkinsons-federated-learning-nhla84phjfkyw5clzkyxx3.streamlit.app/)** — Upload a CSV or click "Load live demo data" to screen real patients instantly.
+
+
+---
+
 ### Final Performance on Held-Out Test Sets
 
 | Modality | Test Patients | AUC | Accuracy | Balanced Acc | F1 | Brier Score |
 |---|---|---|---|---|---|---|
 | 🗣️ **Voice** | 39 | **0.844** | 79.5% | 65.2% | 0.875 | 0.122 |
 | ✍️ **Handwriting** | 13 | **1.000** | 92.3% | 91.7% | 0.909 | — |
+
+### Baseline Comparison — Voice Modality
+
+All models trained on the same 156 patients (3 hospitals combined), tested on the same **39 held-out patients**. Strict patient-aware split — no patient appears in both train and test.
+
+| Model | AUC | Accuracy | Balanced Acc | F1 |
+|---|---|---|---|---|
+| SVM (RBF kernel) | **0.960** | 94.9% | 85.7% | 0.970 |
+| Gradient Boosting | 0.946 | 92.3% | 84.2% | 0.954 |
+| Random Forest (200 trees) | 0.911 | 94.9% | 85.7% | 0.970 |
+| ★ **Federated MLP (ours)** | **0.844** | 79.5% | 65.2% | 0.875 |
+| Logistic Regression | 0.835 | 89.7% | 71.4% | 0.941 |
+
+> **Why does federated underperform centralised SVM?** The federated model trains across Non-IID clients with a proximal penalty — it trades some accuracy for privacy preservation and cross-modal generalisation (it simultaneously serves a handwriting client). A centralised SVM with no privacy constraints and full data access is the expected upper bound. The gap is honest and expected.
+>
+> **Note on naive evaluation:** Without a patient-aware split, UCI Parkinson's yields ~96% accuracy — an artefact of patient leakage common in the literature. All numbers above avoid this.
 
 ### Confusion Matrices
 
@@ -351,6 +375,9 @@ python -m src.federated_trainer --rounds 15 --dp
 # More rounds
 python -m src.federated_trainer --rounds 30
 
+# Compare against centralised baselines (SVM, RF, GBM)
+python -m src.compare_baselines
+
 # Stronger FedProx
 python -m src.federated_trainer --prox-mu 0.5
 ```
@@ -406,6 +433,18 @@ The **gradient finite-difference tests** mathematically verify that the numpy ba
 
 ---
 
+## 👥 Team
+
+**Group 30 — PEC Chandigarh, CSE Department | Academic Session 2025–26**
+
+| Member | Responsibility |
+|---|---|
+| Student 1 | Federated server, FedProx aggregation, modality-aware aggregator, deployment |
+| Student 2 | Voice preprocessing, Voice Encoder, backpropagation, DP-SGD, test suite |
+| Student 3 | Handwriting preprocessing, HW Encoder, UPDRS regression model |
+| Student 4 | Evaluation plots, Streamlit dashboard, documentation, README |
+
+---
 
 ## 📚 References
 
